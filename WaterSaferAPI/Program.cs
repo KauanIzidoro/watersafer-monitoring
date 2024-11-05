@@ -1,4 +1,9 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using WaterSaferAPI.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<WaterSaferContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("WaterSaferContext") ?? throw new InvalidOperationException("Connection string 'WaterSaferContext' not found.")));
 
 
 builder.Services.AddControllers();
