@@ -1,6 +1,6 @@
 "use client"
 
-import { TrendingUp } from "lucide-react"
+import { ChartArea } from "lucide-react"
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
 
 import {
@@ -26,7 +26,8 @@ const chartData = [
   { month: "Quarta", armazenado: 237, gasto: 120 },
   { month: "Quinta", armazenado: 173, gasto: 190 },
   { month: "Sexta", armazenado: 209, gasto: 130 },
-  { month: "Sábado", armazenado: 214, gasto: 210 },
+  { month: "Sábado", armazenado: 150, gasto: 210 },
+  { month: "Domingo", armazenado: 10, gasto: 200 },
 ]
 
 const chartConfig = {
@@ -42,11 +43,14 @@ const chartConfig = {
 
 export function WaterLine() {
   return (
-    <Card>
+    <Card className="rounded-xl shadow-lg bg-slate-50">
       <CardHeader>
-        <CardTitle>Comparação de Gasto/Capacidade Total</CardTitle>
+        <div className="flex">
+        <CardTitle>Gasto x Capacidade Total</CardTitle>
+        <ChartArea className="h-6 w-6 ml-auto text-slate-500"/>
+        </div>
         <CardDescription>
-          Dados coletados do último mês
+          Comparação entre dados de gasto e armazenamento coletados do mês atual
         </CardDescription>
       </CardHeader>
       <CardContent>
