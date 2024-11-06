@@ -11,13 +11,13 @@ interface CardInformations {
 
 export default function InfoCard({titulo, subtitulo, value, icone:Icone, prop}:CardInformations) {
     return (
-        <Card>
+        <Card className="rounded-xl shadow-lg bg-slate-50">
           <CardHeader>
             <div className="flex">
               <CardTitle className="text-lg sm:text-xl select-none">
                 {titulo}
               </CardTitle>
-              {Icone && <Icone className="ml-auto w-5 h-5" />}
+              {Icone && <Icone className="h-6 w-6 ml-auto text-slate-500" />}
               </div>
 
             <CardDescription>

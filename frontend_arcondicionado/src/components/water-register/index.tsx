@@ -18,7 +18,7 @@ export default function WaterRegister() {
   ];
 
   return (
-    <Card className="h-full">
+    <Card className="h-full rounded-xl shadow-lg bg-slate-50">
       <CardHeader>
         <CardTitle className="text-center text-lg font-semibold">
           Registros de Coleta
@@ -30,7 +30,7 @@ export default function WaterRegister() {
             {registros.map((registro, index) => (
               <div
                 key={index}
-                className="flex justify-between items-center p-3 bg-white rounded-md shadow-sm border border-gray-200"
+                className="flex justify-between items-center p-3 bg-white rounded-xl shadow-sm border border-slate-200"
               >
                 <div className="flex items-center gap-2">
                   <Droplet className="text-blue-500 h-5 w-5" />
