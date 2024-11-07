@@ -1,6 +1,6 @@
 "use client"
 import { WaterLine } from "@/components/chart/WaterLine";
-import InfoCard from "@/components/infocard";
+import InfoCard from "@/components/infocard/index";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import WaterRegister from "@/components/water-register";
@@ -53,7 +53,6 @@ export default function App() {
         <InfoCard 
         titulo="Capacidade atual (Litros)" 
         subtitulo="Capacidade total armazenado no reservatorio"
-        value={8000}
         prop="Litros"
         icone={Layers}
         />
@@ -63,7 +62,6 @@ export default function App() {
           <InfoCard 
           titulo="Total gasto (Litros)" 
           subtitulo="Capacidade gasta do tanque hoje"
-          value={2000}
           prop="Litros"
           icone={Droplets}
           />
