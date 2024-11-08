@@ -1,4 +1,4 @@
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 
@@ -7,7 +7,6 @@ interface CardInformations {
   subtitulo: string;
   icone?: React.FC<React.SVGProps<SVGSVGElement>>;
   prop?: string;
-  volume?: number
 }
 
 interface TankData {
@@ -15,27 +14,30 @@ interface TankData {
   volume: number;
 }
 
-export default function InfoCard({ titulo, volume, subtitulo, icone: Icone, prop }: CardInformations) {
-  const [data, setData] = useState<TankData | null>(null); // Inicialize como null
+export default function InfoCard({ titulo, subtitulo, icone: Icone, prop }: CardInformations) {
+  const [data, setData] = useState<TankData | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  const url = "http://127.0.0.1:5249/api/WaterTanks/";
+  const urlAtual = "http://127.0.0.1:5249/api/WaterTanks/"; // URL para volume atual
+  const urlMaximo = "http://127.0.0.1:5249/api/WaterTanksMax/"; // URL para volume máximo (por exemplo)
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(url, {
-          headers: {
-            'Accept': 'application/json'
-          }
+        // Escolhe a URL com base no título do card
+        const selectedUrl = titulo === "Capacidade atual (Litros)" ? urlAtual : urlMaximo;
+        const response = await axios.get(selectedUrl, {
+          headers: { 'Accept': 'application/json' }
         });
+        
+        // Se precisar de dados específicos, por exemplo, o primeiro item do array
         setData(response.data[0]);
       } catch (error: any) {
         setError(error.response?.data || "Erro ao carregar dados");
       }
     };
     fetchData();
-  }, []); // Adicione um array vazio para evitar que o useEffect rode em loop
+  }, [titulo]); // Reexecuta se o título mudar
 
   return (
     <Card>
@@ -46,14 +48,11 @@ export default function InfoCard({ titulo, volume, subtitulo, icone: Icone, prop
           </CardTitle>
           {Icone && <Icone className="ml-auto w-5 h-5" />}
         </div>
-
-        <CardDescription>
-          {subtitulo}
-        </CardDescription>
+        <CardDescription>{subtitulo}</CardDescription>
       </CardHeader>
 
       <CardContent>
-        {data ? ( // Verifique se data existe antes de acessar `volume`
+        {data ? (
           <p className="text-base sm:text-lg font-bold">
             {data.volume} {prop}
           </p>
