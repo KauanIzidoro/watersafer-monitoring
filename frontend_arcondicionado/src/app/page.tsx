@@ -4,18 +4,19 @@ import InfoCard from "@/components/infocard/index";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import WaterRegister from "@/components/water-register";
-import { Droplets, Layers, Target, ThermometerSun } from "lucide-react";
+import { Droplets, Layers, ThermometerSun } from "lucide-react";
 import React from "react";
+import '@/styles/styles.css';
 
 export default function App() {
   return (
-    <div className="w-full max-w-5xl mx-auto p-5">
+    <div className="w-full min-h-screen max-w-5xl mx-auto p-5">
       <header className="flex items-center gap-5 mb-5">
         <Avatar>
           <AvatarImage src="https://www.sp.senai.br/images/senai.svg" alt="@shadcn" />
-          <AvatarFallback>CN</AvatarFallback>
+          <AvatarFallback>Icone Monitoramento da Água</AvatarFallback>
         </Avatar>
-        <h1 className="text-2xl font-bold">Monitoramento de Água</h1>
+        <h1 className="text-4xl font-bold font">Monitoramento de Água</h1>
       </header>
 
       <hr className="my-4"/>
@@ -23,9 +24,9 @@ export default function App() {
       <div className="grid grid-cols-6 h-full w-full gap-5">
 
         <div className="col-span-4">
-          <Card className="flex items-center p-4 gap-5">
+          <Card className="flex items-center p-4 gap-5 rounded-xl shadow-lg bg-slate-50">
             <CardContent className="flex justify-center items-center gap-5 w-full">
-              <ThermometerSun className="h-10 w-10" />
+              <ThermometerSun className="h-12 w-12" />
               <div className="flex flex-col items-center text-center">
                 <span className="text-4xl font-semibold">26°C</span>
                 <h1 className="text-lg">
@@ -35,16 +36,17 @@ export default function App() {
             </CardContent>
 
             <CardHeader className="text-gray-500 text-sm w-full text-center">
-              Não esqueça de verificar o sistema de caixa da água
+              Não esqueça de verificar o sistema de caixa da água regularmente
             </CardHeader>
           </Card>
         </div>
 
         <div className="col-span-2 flex">
-          <Card>
+          <Card className="rounded-xl shadow-lg bg-slate-50">
             <CardHeader>
-              <CardTitle>Faculdade de Tecnologia <a className="text-red-400" href="https://www.sp.senai.br">SENAI Gaspar Ricardo Junior</a></CardTitle>
-              <CardDescription>Turma ADS/MECA</CardDescription>
+              <CardTitle>Faculdade de Tecnologia <a className="text-red-600" href="https://www.sp.senai.br">SENAI Gaspar Ricardo Jr</a></CardTitle>
+              <hr className="my-4 bg-slate-50"/>
+              <CardDescription>Projeto Extracurricular Ads/Mecatrônica</CardDescription>
             </CardHeader>
           </Card>
         </div>
