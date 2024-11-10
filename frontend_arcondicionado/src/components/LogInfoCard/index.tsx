@@ -10,7 +10,6 @@ interface CardInformations {
 }
 
 interface TankData {
-  id: number;
   waterVolumeCurrently: number;
 }
 
@@ -26,10 +25,10 @@ export default function LogInfoCard({ titulo, subtitulo, icone: Icone, prop }: C
       const response = await axios.get(urlMaximo, {
         headers: { 'Accept': 'application/json' }
       });
-      
-      // Verifica se há dados e atualiza o estado
-      if (Array.isArray(response.data) && response.data.length > 0) {
-        setData(response.data[0]);
+  
+      // Verifica se a resposta é um objeto e tem a propriedade esperada
+      if (response.data && 'waterVolumeCurrently' in response.data) {
+        setData(response.data);
       } else {
         setData(null);
         setError("Nenhum dado encontrado.");
@@ -39,10 +38,11 @@ export default function LogInfoCard({ titulo, subtitulo, icone: Icone, prop }: C
       setData(null);
     }
   }, [titulo]);
-
+  
   useEffect(() => {
     fetchData();
   }, [fetchData]); // Reexecuta quando `fetchData` mudar
+  
 
   return (
     <Card>
