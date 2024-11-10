@@ -32,7 +32,7 @@ namespace WaterSaferAPI.Controllers
         [HttpGet("Max")]
         public async Task<ActionResult<IEnumerable<WaterTank>>> GetWaterTankMax()
         {
-            var currentCapacity = await _context.WaterTank.Select(wt => wt.Volume).ToListAsync();
+            var currentCapacity = await _context.WaterTank.Select(wt => wt.Capacity).ToListAsync();
             Console.WriteLine(currentCapacity);
 
             return Ok(currentCapacity);
