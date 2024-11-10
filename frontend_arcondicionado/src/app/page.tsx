@@ -7,6 +7,7 @@ import WaterRegister from "@/components/water-register";
 import { Droplets, Layers, ThermometerSun } from "lucide-react";
 import React from "react";
 import '@/styles/styles.css';
+import LogInfoCard from "@/components/LogInfoCard";
 
 export default function App() {
   return (
@@ -61,7 +62,7 @@ export default function App() {
         </div>
 
         <div className="col-span-3">
-          <InfoCard 
+          <LogInfoCard 
           titulo="Total gasto (Litros)" 
           subtitulo="Capacidade gasta do tanque hoje"
           prop="Litros"

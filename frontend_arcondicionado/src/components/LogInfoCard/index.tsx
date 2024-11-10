@@ -1,7 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
 import React, { useState, useEffect, useCallback } from "react";
 import axios from 'axios';
-import { Console } from "console";
 
 interface CardInformations {
   titulo: string;
@@ -12,19 +11,19 @@ interface CardInformations {
 
 interface TankData {
   id: number;
-  volume: number;
+  waterVolumeCurrently: number;
 }
 
-export default function InfoCard({ titulo, subtitulo, icone: Icone, prop }: CardInformations) {
+export default function LogInfoCard({ titulo, subtitulo, icone: Icone, prop }: CardInformations) {
   const [data, setData] = useState<TankData | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  const urlAtual = "http://127.0.0.1:5249/api/WaterTanks/"; // URL para volume atual
+  const urlMaximo = "http://127.0.0.1:5249/api/WaterLogs/WaterVolume/"; // URL para volume máximo (por exemplo)
 
   const fetchData = useCallback(async () => {
     try {
       // Escolhe a URL com base no título do card
-      const response = await axios.get(urlAtual, {
+      const response = await axios.get(urlMaximo, {
         headers: { 'Accept': 'application/json' }
       });
       
@@ -60,7 +59,7 @@ export default function InfoCard({ titulo, subtitulo, icone: Icone, prop }: Card
       <CardContent>
         {data ? (
           <p className="text-base sm:text-lg font-bold">
-            {data.volume} {prop}
+            {data.waterVolumeCurrently} {prop}
           </p>
         ) : (
           <p>Carregando...</p>
