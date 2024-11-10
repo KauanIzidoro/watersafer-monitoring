@@ -38,14 +38,12 @@ namespace WaterSaferAPI.Controllers
         {
             var SensorDistance = await _context.WaterLog.Select(w => w.Distance).ToListAsync();
 
-            Double WaterTankWidth = 0.58;
-            Double WaterTankHeight = 0.97;
-            Double WaterTankVolumeTotal = WaterTankHeight * Math.Pow(Math.PI * (WaterTankWidth / 2), 2);
+            double WaterTankWidth = 0.58;
+            double WaterTankHeight = 0.97;
+            double WaterTankVolumeTotal = WaterTankHeight * Math.Pow(Math.PI * (WaterTankWidth / 2), 2);
 
-            // Cálculo do volume de água
             var WaterVolumeCurrently = (WaterTankHeight - SensorDistance[0]) * Math.Pow(Math.PI * (WaterTankWidth / 2), 2);
 
-            // Retornar o volume de água calculado
             return Ok(new {WaterVolumeCurrently});
         }
 
