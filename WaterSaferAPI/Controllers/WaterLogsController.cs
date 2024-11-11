@@ -36,15 +36,23 @@ namespace WaterSaferAPI.Controllers
         [HttpGet("WaterVolume")]
         public async Task<ActionResult<double>> GetWaterVolume()
         {
+            // Consulra para obter  o último valor da distância medido pelo sensor acoplado ao tanque
             var SensorDistance = await _context.WaterLog.Select(w => w.Distance).ToListAsync();
 
-            double WaterTankWidth = 0.58;
-            double WaterTankHeight = 0.97;
-            double WaterTankVolumeTotal = WaterTankHeight * Math.Pow(Math.PI * (WaterTankWidth / 2), 2);
+            // Consultas para obter as dimensões do tanque dado o Id
+            double WaterTankDiameter = 58; // 58cm
+            double WaterTankHeight = 97; // 97cm
 
-            var WaterVolumeCurrently = (WaterTankHeight - SensorDistance[0]) * Math.Pow(Math.PI * (WaterTankWidth / 2), 2);
+            // Cálculo do volume atual de água no tanque, neste caso observe que o tanqye é cilindrico
+            // O resultado é obtido em cm³, pois as dimensões e a distância medida pelo sensor é nesta unidade.
+            double WaterTankVolumeTotal = WaterTankHeight * Math.Pow(WaterTankDiameter / 2, 2) * Math.PI; // cm³
+            var WaterVolumeCurrently = (WaterTankHeight - SensorDistance[0]) * Math.Pow(Math.PI * (WaterTankDiameter / 2), 2);
+            var result = (WaterTankVolumeTotal - (SensorDistance[0] * Math.Pow(WaterTankDiameter / 2, 2) * Math.PI))/1000;
+            
+            // A exibição deste valor deve ser feita com apenas 2 casa decimais e em Litros
+            var WaterVolume = Math.Round(result, 2);
 
-            return Ok(new {WaterVolumeCurrently});
+            return Ok(new { WaterVolume });
         }
 
         // GET: api/WaterLogs/5
