@@ -1,7 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card";
 import React, { useState, useEffect, useCallback } from "react";
 import axios from 'axios';
-import { Console } from "console";
 
 interface CardInformations {
   titulo: string;
@@ -11,26 +10,31 @@ interface CardInformations {
 }
 
 interface TankData {
-  id: number;
-  volume: number;
+  id?: number;
+  capacity?: number;
+  waterVolume?: number;
 }
 
 export default function InfoCard({ titulo, subtitulo, icone: Icone, prop }: CardInformations) {
   const [data, setData] = useState<TankData | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  const urlAtual = "http://127.0.0.1:5249/api/WaterTanks/"; // URL para volume atual
+  const urlTotal = "http://127.0.0.1:5249/api/WaterTanks/"; // endpoint para capacidade total 
+  const urlVolumeAtual = "http://127.0.0.1:5249/api/WaterLogs/WaterVolume/"; // endpoint para volume atual
 
   const fetchData = useCallback(async () => {
     try {
-      // Escolhe a URL com base no título do card
-      const response = await axios.get(urlAtual, {
+      // Altera a URL com base no título do card
+      const urlTarget = titulo === "Capacidade Total (Litros)" ? urlTotal : urlVolumeAtual;
+      const response = await axios.get(urlTarget, {
         headers: { 'Accept': 'application/json' }
       });
-      
-      // Verifica se há dados e atualiza o estado
-      if (Array.isArray(response.data) && response.data.length > 0) {
-        setData(response.data[0]);
+
+      // Verifica e ajusta o estado de acordo com a resposta de cada endpoint
+      if (titulo === "Capacidade Total (Litros)" && response.data.length > 0) {
+        setData({ capacity: response.data[0].capacity });
+      } else if (titulo === "Capacidade atual (Litros)" && response.data) {
+        setData({ waterVolume: response.data.waterVolume });
       } else {
         setData(null);
         setError("Nenhum dado encontrado.");
@@ -38,12 +42,12 @@ export default function InfoCard({ titulo, subtitulo, icone: Icone, prop }: Card
     } catch (error: any) {
       setError(error.response?.data || "Erro ao carregar dados");
       setData(null);
-    }
+    } 
   }, [titulo]);
 
   useEffect(() => {
     fetchData();
-  }, [fetchData]); // Reexecuta quando `fetchData` mudar
+  }, [fetchData]);
 
   return (
     <Card>
@@ -60,7 +64,7 @@ export default function InfoCard({ titulo, subtitulo, icone: Icone, prop }: Card
       <CardContent>
         {data ? (
           <p className="text-base sm:text-lg font-bold">
-            {data.volume} {prop}
+            {titulo === "Capacidade Total (Litros)" ? data.capacity : data.waterVolume} {prop}
           </p>
         ) : (
           <p>Carregando...</p>
