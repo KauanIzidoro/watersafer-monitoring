@@ -54,7 +54,7 @@ export default function App() {
 
         <div className="col-span-2">
         <InfoCard 
-        titulo="Capacidade atual (Litros)" 
+        titulo="Capacidade Total (Litros)" 
         subtitulo="Capacidade total armazenado no reservatorio"
         prop="Litros"
         icone={Layers}
