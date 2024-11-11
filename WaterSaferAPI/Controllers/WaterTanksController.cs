@@ -26,7 +26,7 @@ namespace WaterSaferAPI.Controllers
         public async Task<ActionResult<IEnumerable<WaterTank>>> GetWaterTank()
         {
             var TankVolume = await _context.WaterTank.ToListAsync(); 
-            return Ok(TankVolume);
+            return TankVolume;
         }
 
         [HttpGet("Max")]
