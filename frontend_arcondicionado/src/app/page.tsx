@@ -22,10 +22,10 @@ export default function App() {
 
       <hr className="my-4"/>
 
-      <div className="grid grid-cols-6 h-full w-full gap-5">
+      <div className="grid grid-cols-8 h-full w-full gap-5">
 
-        <div className="col-span-4">
-          <Card className="flex items-center p-4 gap-5 rounded-xl shadow-lg bg-slate-50">
+        <div className="col-span-6">
+          <Card className="items-center p-4 gap-5 rounded-xl shadow-lg bg-slate-50">
             <CardContent className="flex justify-center items-center gap-5 w-full">
               <ThermometerSun className="h-12 w-12" />
               <div className="flex flex-col items-center text-center">
@@ -52,7 +52,23 @@ export default function App() {
           </Card>
         </div>
 
-        <div className="col-span-3">
+        <div className="col-span-2">
+        <InfoCard 
+        titulo="Capacidade atual (Litros)" 
+        subtitulo="Capacidade total armazenado no reservatorio"
+        prop="Litros"
+        icone={Layers}
+        />
+        </div>
+        <div className="col-span-2">
+        <InfoCard 
+        titulo="Capacidade atual (Litros)" 
+        subtitulo="Capacidade total armazenado no reservatorio"
+        prop="Litros"
+        icone={Layers}
+        />
+        </div>
+        <div className="col-span-2">
         <InfoCard 
         titulo="Capacidade atual (Litros)" 
         subtitulo="Capacidade total armazenado no reservatorio"
@@ -61,7 +77,7 @@ export default function App() {
         />
         </div>
 
-        <div className="col-span-3">
+        <div className="col-span-2">
           <LogInfoCard 
           titulo="Total gasto (Litros)" 
           subtitulo="Capacidade gasta do tanque hoje"
@@ -70,11 +86,11 @@ export default function App() {
           />
         </div>
 
-        <div className="col-span-4">
+        <div className="col-span-5">
           <WaterLine/>
         </div>
 
-        <div className="col-span-2">
+        <div className="col-span-3">
           <WaterRegister/>
         </div>
 
