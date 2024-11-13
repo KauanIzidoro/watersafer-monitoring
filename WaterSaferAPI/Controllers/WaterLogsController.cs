@@ -37,17 +37,17 @@ namespace WaterSaferAPI.Controllers
         public async Task<ActionResult<double>> GetWaterVolume()
         {
             // Consulra para obter  o último valor da distância medido pelo sensor acoplado ao tanque
-            var SensorDistance = await _context.WaterLog.Where(sd=> sd.Id == 1).Select(sd => sd.Distance).ToListAsync();
+            var SensorDistance = await _context.WaterLog.Select(sd => sd.Distance).ToListAsync();
 
             // Consultas para obter o capacidade total e altura do tanque dado o Id
-            var WaterTankTotalCapacity = await _context.WaterTank.Where(wt=> wt.Id == 1).Select(wt => wt.Capacity).ToListAsync();
-            var WaterTankHeight = await _context.WaterTank.Where(wt=>wt.Id == 1).Select(wt => wt.Height).ToListAsync();
+            var WaterTankTotalCapacity = await _context.WaterTank.Where(wt => wt.Id == 1).Select(wt => wt.Capacity).ToListAsync();
+            var WaterTankHeight = await _context.WaterTank.Where(wt => wt.Id == 1).Select(wt => wt.Height).ToListAsync();
 
             // Cálculo do volume atual de água no tanque, neste caso observe que o tanqye é cilindrico
             // O resultado é obtido em cm³, pois as dimensões e a distância medida pelo sensor é nesta unidade.
-            var WaterVolumeUnFormat = WaterTankTotalCapacity[0]*(WaterTankHeight[0] - SensorDistance[0])/WaterTankHeight[0]; // Litros
+            var WaterVolumeUnFormat = WaterTankTotalCapacity[0] * (WaterTankHeight[0] - SensorDistance[0]) / WaterTankHeight[0]; // Litros
 
-            
+
             // A exibição deste valor deve ser feita com apenas 2 casa decimais e em Litros
             var WaterVolume = Math.Round(WaterVolumeUnFormat, 2);
 
@@ -69,7 +69,6 @@ namespace WaterSaferAPI.Controllers
         }
 
         // PUT: api/WaterLogs/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutWaterLog(int id, WaterLog waterLog)
         {
@@ -100,7 +99,6 @@ namespace WaterSaferAPI.Controllers
         }
 
         // POST: api/WaterLogs
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<WaterLog>> PostWaterLog(WaterLog waterLog)
         {
