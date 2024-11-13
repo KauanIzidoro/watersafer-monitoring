@@ -60,14 +60,16 @@ export default function App() {
         icone={Layers}
         />
         </div>
+
         <div className="col-span-2">
         <InfoCard 
         titulo="Capacidade atual (Litros)" 
         subtitulo="Capacidade total armazenado no reservatorio"
         prop="Litros"
         icone={Layers}
-        />
+        />          
         </div>
+        
         <div className="col-span-2">
         <InfoCard 
         titulo="Capacidade atual (Litros)" 
@@ -78,13 +80,22 @@ export default function App() {
         </div>
 
         <div className="col-span-2">
+        <InfoCard 
+        titulo="Capacidade atual (Litros)" 
+        subtitulo="Capacidade total armazenado no reservatorio"
+        prop="Litros"
+        icone={Layers}
+        />
+        </div>
+
+        {/* <div className="col-span-2">
           <LogInfoCard 
           titulo="Total gasto (Litros)" 
           subtitulo="Capacidade gasta do tanque hoje"
           prop="Litros"
           icone={Droplets}
           />
-        </div>
+        </div> */}
 
         <div className="col-span-5">
           <WaterLine/>
