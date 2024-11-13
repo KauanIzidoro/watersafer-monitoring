@@ -1,5 +1,5 @@
-# Water Safer Monitoring
+# **Water Safer Monitoring**
 
-Este projeto consiste em um painel de monitoramento dos reservatórios que recebem água de ar-condicionados instalados pela escola SENAI Gaspar Ricador Junior - Sorocaba.
+## Descrição:
 
-![wireframe](img/wireframe.png)
+`Projeto de Extensão - Ar condicionado` - Dashboard para análise e acompanhamento em tempo real do sistema integrando Front-End, Back-End e Banco de Dados
