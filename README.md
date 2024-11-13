@@ -36,10 +36,11 @@ graph LR
 ## Documentação:
 
 0. [Wireframe](docs/wireframe.png)
-1. [Padrões de Commits](docs/commit-patterns.md)  
-2. [Gerenciamento de Branches](/docs/branch-management.md)
-3. [Ferramentas e Dependências](/docs/tools-and-dependencies.md)
-4. [Diagrama de Sequência](/docs/sequence-diagram.md)
-5. Preparar o ambiente para rodar a aplicação:  
+1. [Anotações do Projeto](docs/project-notes/notes.png)
+2. [Padrões de Commits](docs/commit-patterns.md)  
+3. [Gerenciamento de Branches](/docs/branch-management.md)
+4. [Ferramentas e Dependências](/docs/tools-and-dependencies.md)
+5. [Diagrama de Sequência](/docs/sequence-diagram.md)
+6. Preparar o ambiente para rodar a aplicação:  
     1. [Ubuntu WSL Terminal (Recomendado)](/docs/application-environment/ubuntu.md)
     2. [Windows Terminal](/docs/application-environment/windows.md)
