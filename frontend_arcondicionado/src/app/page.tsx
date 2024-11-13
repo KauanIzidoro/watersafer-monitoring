@@ -72,9 +72,9 @@ export default function App() {
         
         <div className="col-span-2">
         <InfoCard 
-        titulo="Capacidade atual (Litros)" 
-        subtitulo="Capacidade total armazenado no reservatorio"
-        prop="Litros"
+        titulo="Medições Totais" 
+        subtitulo="Número de medições enviadas pelo sensor ultrassônico"
+        prop="Envios"
         icone={Layers}
         />
         </div>

@@ -6,15 +6,7 @@ export default function WaterRegister() {
   // Dados fictícios de exemplo
   const registros = [
     { volume: "250 ml", horario: "8:00 am" },
-    { volume: "200 ml", horario: "9:30 am" },
-    { volume: "500 ml", horario: "11:00 am" },
-    { volume: "200 ml", horario: "1:00 pm" },
-    { volume: "250 ml", horario: "3:00 pm" },
-    { volume: "250 ml", horario: "8:00 am" },
-    { volume: "200 ml", horario: "9:30 am" },
-    { volume: "500 ml", horario: "11:00 am" },
-    { volume: "200 ml", horario: "1:00 pm" },
-    { volume: "250 ml", horario: "3:00 pm" },
+
   ];
 
   return (
