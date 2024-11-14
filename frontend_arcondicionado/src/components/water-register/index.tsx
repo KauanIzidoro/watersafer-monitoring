@@ -16,8 +16,7 @@ export default function WaterRegister() {
     { volume: "110 ml", horario: "15:00 am" },
     { volume: "100 ml", horario: "14:30 am" },
     { volume: "300 ml", horario: "14:00 am" },
-    { volume: "250 ml", horario: "13:30 am" },
-    { volume: "125 ml", horario: "13:00 am" }
+    { volume: "250 ml", horario: "13:30 am" }
   ];
 
   return (
@@ -28,7 +27,7 @@ export default function WaterRegister() {
         </CardTitle>
       </CardHeader>
       <CardContent className="p-0">
-        <ScrollArea className="h-[400px] px-4 py-2">
+        <ScrollArea className="h-[600px] px-4 py-2">
           <div className="space-y-2">
             {registros.map((registro, index) => (
               <div

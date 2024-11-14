@@ -27,7 +27,14 @@ const chartData = [
   { month: "Quinta", armazenado: 173, gasto: 190 },
   { month: "Sexta", armazenado: 209, gasto: 130 },
   { month: "Sábado", armazenado: 150, gasto: 210 },
-  { month: "Domingo", armazenado: 10, gasto: 200 },
+  { month: "Domingo", armazenado: 110, gasto: 300 },
+  { month: "Segunda", armazenado: 186, gasto: 80 },
+  { month: "Terça", armazenado: 300, gasto: 100 },
+  { month: "Quarta", armazenado: 237, gasto: 120 },
+  { month: "Quinta", armazenado: 123, gasto: 190 },
+  { month: "Sexta", armazenado: 309, gasto: 130 },
+  { month: "Sábado", armazenado: 120, gasto: 210 },
+  { month: "Domingo", armazenado: 110, gasto: 180 },
 ]
 
 const chartConfig = {

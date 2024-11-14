@@ -9,7 +9,7 @@ import '@/styles/styles.css';
 
 export default function App() {
   return (
-      <div className="w-full h-full max-w-7xl mx-auto p-5">
+      <div className="w-full h-full max-w-8xl mx-auto p-5">
         <header className="flex items-center gap-5 mb-5">
           <img className="h-[40px]" src="https://www.sp.senai.br/images/senai.svg" alt="SENAI" />
           <h1 className="text-4xl font-bold font">AcquaAir - Dashboard</h1>
