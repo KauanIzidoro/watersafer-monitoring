@@ -1,13 +1,12 @@
 "use client"
 import { WaterLine } from "@/components/chart/WaterLine";
-import InfoCard from "@/components/infocard/index";
+import InfoCard from "@/components/InfoCard";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import WaterRegister from "@/components/water-register";
 import { Droplets, Layers, ThermometerSun } from "lucide-react";
 import React from "react";
 import '@/styles/styles.css';
-import LogInfoCard from "@/components/LogInfoCard";
 
 export default function App() {
   return (
@@ -20,7 +19,7 @@ export default function App() {
         <h1 className="text-4xl font-bold font">Monitoramento de Água</h1>
       </header>
 
-      <hr className="my-4"/>
+      <hr className="my-4" />
 
       <div className="grid grid-cols-8 h-full w-full gap-5">
 
@@ -46,63 +45,54 @@ export default function App() {
           <Card className="rounded-xl shadow-lg bg-slate-50">
             <CardHeader>
               <CardTitle>Faculdade de Tecnologia <a className="text-red-600" href="https://www.sp.senai.br">SENAI Gaspar Ricardo Jr</a></CardTitle>
-              <hr className="my-4 bg-slate-50"/>
+              <hr className="my-4 bg-slate-50" />
               <CardDescription>Projeto Extracurricular Ads/Mecatrônica</CardDescription>
             </CardHeader>
           </Card>
         </div>
 
         <div className="col-span-2">
-        <InfoCard 
-        titulo="Capacidade Total (Litros)" 
-        subtitulo="Capacidade total armazenado no reservatorio"
-        prop="Litros"
-        icone={Layers}
-        />
-        </div>
-
-        <div className="col-span-2">
-        <InfoCard 
-        titulo="Capacidade atual (Litros)" 
-        subtitulo="Capacidade total armazenado no reservatorio"
-        prop="Litros"
-        icone={Layers}
-        />          
-        </div>
-        
-        <div className="col-span-2">
-        <InfoCard 
-        titulo="Medições Totais" 
-        subtitulo="Número de medições enviadas pelo sensor ultrassônico"
-        prop="Envios"
-        icone={Layers}
-        />
-        </div>
-
-        <div className="col-span-2">
-        <InfoCard 
-        titulo="Capacidade atual (Litros)" 
-        subtitulo="Capacidade total armazenado no reservatorio"
-        prop="Litros"
-        icone={Layers}
-        />
-        </div>
-
-        {/* <div className="col-span-2">
-          <LogInfoCard 
-          titulo="Total gasto (Litros)" 
-          subtitulo="Capacidade gasta do tanque hoje"
-          prop="Litros"
-          icone={Droplets}
+          <InfoCard
+            titulo="Capacidade Total (Litros)"
+            subtitulo="Capacidade total armazenado no reservatorio"
+            prop="Litros"
+            icone={Layers}
           />
-        </div> */}
+        </div>
+
+        <div className="col-span-2">
+          <InfoCard
+            titulo="Capacidade atual (Litros)"
+            subtitulo="Capacidade total armazenado no reservatorio"
+            prop="Litros"
+            icone={Layers}
+          />
+        </div>
+
+        <div className="col-span-2">
+          <InfoCard
+            titulo="Medições Totais"
+            subtitulo="Número de medições enviadas pelo sensor ultrassônico"
+            prop="Envios"
+            icone={Layers}
+          />
+        </div>
+
+        <div className="col-span-2">
+          <InfoCard
+            titulo="Capacidade atual (Litros)"
+            subtitulo="Capacidade total armazenado no reservatorio"
+            prop="Litros"
+            icone={Layers}
+          />
+        </div>
 
         <div className="col-span-5">
-          <WaterLine/>
+          <WaterLine />
         </div>
 
         <div className="col-span-3">
-          <WaterRegister/>
+          <WaterRegister />
         </div>
 
       </div>

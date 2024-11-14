@@ -16,9 +16,9 @@ export default function Reports() {
                         Central de Relatórios
                     </CardTitle>
                     <form className="flex items-center gap-2">
-                        <Input  name="id" placeholder="ID do relatório"/>
-                        <Input  name="data" placeholder="Data"/>
-                        <Input  name="local" placeholder="Local"/>
+                        <Input name="id" placeholder="ID do relatório" />
+                        <Input name="data" placeholder="Data" />
+                        <Input name="local" placeholder="Local" />
 
                         <Button type="submit" variant="secondary">
                             <Search className="w-4 h-4 mr-2" />
@@ -44,17 +44,17 @@ export default function Reports() {
 
                                 <div className="grid grid-cols-4 items-center text-left gap-2">
                                     <Label htmlFor="desc">Ocorrência</Label>
-                                    <Input id="desc" name="name" placeholder="Descrição do ocorrido" className="col-span-4"/>
+                                    <Input id="desc" name="name" placeholder="Descrição do ocorrido" className="col-span-4" />
                                 </div>
 
                                 <div className="grid grid-cols-4 items-center text-left gap-2">
                                     <Label htmlFor="data">Data</Label>
-                                    <Input id="data" type="datetime-local" placeholder="Data" className="col-span-4 sm:col-span-3"/>
+                                    <Input id="data" type="datetime-local" placeholder="Data" className="col-span-4 sm:col-span-3" />
                                 </div>
 
                                 <div className="grid grid-cols-4 items-center text-left gap-2">
                                     <Label htmlFor="local">Local</Label>
-                                    <Input id="data" placeholder="Local/Área da ocorrência" className="col-span-4 sm:col-span-3"/>
+                                    <Input id="data" placeholder="Local/Área da ocorrência" className="col-span-4 sm:col-span-3" />
                                 </div>
 
 
@@ -78,12 +78,12 @@ export default function Reports() {
                 </TableHeader>
 
                 <TableBody>
-                    {Array.from({ length: 5 }).map((_,i) =>{
+                    {Array.from({ length: 5 }).map((_, i) => {
                         return (
                             <TableRow key={i}>
-                                <TableCell>Relatório {i+1}</TableCell>
-                                <TableCell>0{5+i}:{1+i}0 0{i+1}/10/2024</TableCell>
-                                <TableCell>Área de Produção (Bloco {1+i})</TableCell>
+                                <TableCell>Relatório {i + 1}</TableCell>
+                                <TableCell>0{5 + i}:{1 + i}0 0{i + 1}/10/2024</TableCell>
+                                <TableCell>Área de Produção (Bloco {1 + i})</TableCell>
                             </TableRow>
                         )
                     })}

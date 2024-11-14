@@ -46,8 +46,8 @@ export function WaterLine() {
     <Card className="rounded-xl shadow-lg bg-slate-50">
       <CardHeader>
         <div className="flex">
-        <CardTitle>Gasto x Capacidade Total</CardTitle>
-        <ChartArea className="h-6 w-6 ml-auto text-slate-500"/>
+          <CardTitle>Gasto x Capacidade Total</CardTitle>
+          <ChartArea className="h-6 w-6 ml-auto text-slate-500" />
         </div>
         <CardDescription>
           Comparação entre dados de gasto e armazenamento coletados do mês atual

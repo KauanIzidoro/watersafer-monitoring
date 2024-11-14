@@ -17,8 +17,8 @@ interface ClimateDataProps {
     ylabel: string;
 }
 
-const ClimateChart: React.FC<ClimateDataProps> = ({labels, datasets, xlabel, ylabel}) => {
-    const data = {labels, datasets}
+const ClimateChart: React.FC<ClimateDataProps> = ({ labels, datasets, xlabel, ylabel }) => {
+    const data = { labels, datasets }
     const options = {
         responsive: true,
         plugins: {

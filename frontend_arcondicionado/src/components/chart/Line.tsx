@@ -11,7 +11,7 @@ export default function LineChart() {
         const documentStyle = getComputedStyle(document.documentElement);
         const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
         const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
-        
+
         const data = {
             labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
             datasets: [
@@ -72,12 +72,12 @@ export default function LineChart() {
                     <CardTitle className="text-lg sm:text-xl">
                         Histórico de Produção
                     </CardTitle>
-                    <PackagePlus className="ml-auto w-5 h-5"/>
+                    <PackagePlus className="ml-auto w-5 h-5" />
                 </div>
             </CardHeader>
 
             <CardContent className='w-full'>
-                    <Chart type="line" data={chartData} options={chartOptions} />
+                <Chart type="line" data={chartData} options={chartOptions} />
             </CardContent>
         </Card>
     );

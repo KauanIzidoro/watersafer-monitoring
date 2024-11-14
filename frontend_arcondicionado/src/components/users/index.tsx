@@ -50,79 +50,79 @@ export default function UserCard({ foto, nome, sobrenome, cargo, nvl_acesso, ema
           <CardFooter className="gap-2">
             <Dialog>
               <DialogTrigger asChild>
-                  <Button>Editar</Button>
+                <Button>Editar</Button>
               </DialogTrigger>
-                <DialogContent>
-                  <DialogHeader>
-                    <DialogTitle>Editar Usuário</DialogTitle>
-                    <DialogDescription>Editar informações do usuário</DialogDescription>
-                  </DialogHeader>
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle>Editar Usuário</DialogTitle>
+                  <DialogDescription>Editar informações do usuário</DialogDescription>
+                </DialogHeader>
 
-                        <form className="grid grid-cols-4 items-center text-left gap-2">
-                        <Label htmlFor="desc">Foto</Label>
-                        <Input placeholder="URL" className="col-span-3"/>
+                <form className="grid grid-cols-4 items-center text-left gap-2">
+                  <Label htmlFor="desc">Foto</Label>
+                  <Input placeholder="URL" className="col-span-3" />
 
-                        <Label htmlFor="desc">Nome</Label>
-                        <Input placeholder="Digite seu nome" className="col-span-3"/>
+                  <Label htmlFor="desc">Nome</Label>
+                  <Input placeholder="Digite seu nome" className="col-span-3" />
 
-                        <Label htmlFor="desc">Sobrenome</Label>
-                        <Input placeholder="Digite seu sobrenome" className="col-span-3"/>
+                  <Label htmlFor="desc">Sobrenome</Label>
+                  <Input placeholder="Digite seu sobrenome" className="col-span-3" />
 
-                        <Label htmlFor="desc">Email</Label>
-                        <Input placeholder="Digite seu email" className="col-span-3"/>
+                  <Label htmlFor="desc">Email</Label>
+                  <Input placeholder="Digite seu email" className="col-span-3" />
 
-                        <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                            <Button variant="outline" className="col-span-2">Cargo</Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent className="w-56">
-                            <DropdownMenuRadioGroup value={position} onValueChange={setPosition}>
-                            <DropdownMenuRadioItem value="top">Senior</DropdownMenuRadioItem>
-                            <DropdownMenuRadioItem value="bottom">Desenvolvedor</DropdownMenuRadioItem>
-                            <DropdownMenuRadioItem value="right">Estagiário</DropdownMenuRadioItem>
-                            </DropdownMenuRadioGroup>
-                        </DropdownMenuContent>
-                        </DropdownMenu>
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <Button variant="outline" className="col-span-2">Cargo</Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent className="w-56">
+                      <DropdownMenuRadioGroup value={position} onValueChange={setPosition}>
+                        <DropdownMenuRadioItem value="top">Senior</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="bottom">Desenvolvedor</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="right">Estagiário</DropdownMenuRadioItem>
+                      </DropdownMenuRadioGroup>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
 
-                        <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                            <Button variant="outline" className="col-span-2">Nível de Acesso</Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent className="w-56">
-                            <DropdownMenuRadioGroup value={position} onValueChange={setPosition}>
-                            <DropdownMenuRadioItem value="top">Administrador</DropdownMenuRadioItem>
-                            <DropdownMenuRadioItem value="bottom">Editor</DropdownMenuRadioItem>
-                            <DropdownMenuRadioItem value="right">Leitor</DropdownMenuRadioItem>
-                            </DropdownMenuRadioGroup>
-                        </DropdownMenuContent>
-                        </DropdownMenu>
-                        </form>
-                        <DialogFooter className="flex flex-row justify-end gap-2 sm:gap-0">
-                            <Button type="submit">Salvar</Button>
-                        <DialogClose asChild>
-                            <Button type="button" variant="destructive">Cancelar</Button>
-                        </DialogClose>
-                    </DialogFooter>
-                </DialogContent>
-            </Dialog> 
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <Button variant="outline" className="col-span-2">Nível de Acesso</Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent className="w-56">
+                      <DropdownMenuRadioGroup value={position} onValueChange={setPosition}>
+                        <DropdownMenuRadioItem value="top">Administrador</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="bottom">Editor</DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="right">Leitor</DropdownMenuRadioItem>
+                      </DropdownMenuRadioGroup>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                </form>
+                <DialogFooter className="flex flex-row justify-end gap-2 sm:gap-0">
+                  <Button type="submit">Salvar</Button>
+                  <DialogClose asChild>
+                    <Button type="button" variant="destructive">Cancelar</Button>
+                  </DialogClose>
+                </DialogFooter>
+              </DialogContent>
+            </Dialog>
 
             <Dialog>
               <DialogTrigger asChild>
-                  <Button variant="destructive" >Deletar</Button>
+                <Button variant="destructive" >Deletar</Button>
               </DialogTrigger>
-                <DialogContent>
-                  <DialogHeader>
-                    <DialogTitle>Deletar conta</DialogTitle>
-                    <DialogDescription>Tem certeza que deseja deletar permanentemente o usuário?</DialogDescription>
-                  </DialogHeader>
-                        <DialogFooter className="flex flex-row justify-end gap-2 sm:gap-0">
-                            <Button type="submit">Sim</Button>
-                        <DialogClose asChild>
-                            <Button type="button" variant="outline">Não</Button>
-                        </DialogClose>
-                    </DialogFooter>
-                </DialogContent>
-            </Dialog> 
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle>Deletar conta</DialogTitle>
+                  <DialogDescription>Tem certeza que deseja deletar permanentemente o usuário?</DialogDescription>
+                </DialogHeader>
+                <DialogFooter className="flex flex-row justify-end gap-2 sm:gap-0">
+                  <Button type="submit">Sim</Button>
+                  <DialogClose asChild>
+                    <Button type="button" variant="outline">Não</Button>
+                  </DialogClose>
+                </DialogFooter>
+              </DialogContent>
+            </Dialog>
           </CardFooter>
         </CardContent>
       </Card>
