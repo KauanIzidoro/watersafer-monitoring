@@ -1,7 +1,6 @@
 "use client"
 import { WaterLine } from "@/components/chart/WaterLine";
-import InfoCard from "@/components/InfoCard";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import InfoCard from "@/components/infocard";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import WaterRegister from "@/components/water-register";
 import { Circle, CircleDashed, Beaker, Layers, ThermometerSun } from "lucide-react";
@@ -10,20 +9,15 @@ import '@/styles/styles.css';
 
 export default function App() {
   return (
-    <div className="w-screen h-screen">
-      <div className="w-full max-h-screen max-w-7xl mx-auto p-5">
+      <div className="w-full h-full max-w-7xl mx-auto p-5">
         <header className="flex items-center gap-5 mb-5">
-          {/* <Avatar> */}
           <img className="h-[40px]" src="https://www.sp.senai.br/images/senai.svg" alt="SENAI" />
-          {/* <AvatarImage src="https://www.sp.senai.br/images/senai.svg" alt="@shadcn" /> */}
-          {/* <AvatarFallback>Icone Monitoramento da Água</AvatarFallback> */}
-          {/* </Avatar> */}
           <h1 className="text-4xl font-bold font">AcquaAir - Dashboard</h1>
         </header>
 
         <hr className="my-4" />
 
-        <div className="grid grid-cols-9 h-full w-full gap-5">
+        <div className="grid grid-cols-9 h-full w-full gap-4 pb-5">
 
           <div className="col-span-6 h-full">
             <Card className="items-center rounded-xl shadow-lg bg-slate-50">
@@ -36,10 +30,6 @@ export default function App() {
                   </h1>
                 </div>
               </CardContent>
-
-              {/* <CardHeader className="text-gray-500 text-sm w-full text-center">
-              Não esqueça de verificar o sistema de caixa da água regularmente
-            </CardHeader> */}
             </Card>
           </div>
 
@@ -89,12 +79,6 @@ export default function App() {
           </div>
 
         </div>
-
-        {/* <footer className="mt-8">
-        <p>Todos os direitos reservados, 2024.</p>
-        <p>Faculdade e Escola de tecnologia SENAI Gaspar Ricardo Jr.</p>
-      </footer> */}
       </div>
-    </div>
   );
 }
