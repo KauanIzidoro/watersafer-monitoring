@@ -28,11 +28,11 @@ export default function InfoCard({ titulo, subtitulo, icone: Icone, prop }: Card
     try {
       // Altera a URL com base no título do card
       var urlTarget = "";
-      if (titulo === "Capacidade Total (Litros)") {
+      if (titulo === "Capacidade Total") {
         urlTarget = urlTotal;
-      } else if (titulo === "Capacidade atual (Litros)") {
+      } else if (titulo === "Capacidade Atual") {
         urlTarget = urlVolumeAtual;
-      } else if (titulo == "Medições Totais") {
+      } else if (titulo == "Total de Coletas") {
         urlTarget = urlLogs;
       } else {
         setError("Título não encontrado");
@@ -43,11 +43,11 @@ export default function InfoCard({ titulo, subtitulo, icone: Icone, prop }: Card
       });
 
       // Verifica e ajusta o estado de acordo com a resposta de cada endpoint
-      if (titulo === "Capacidade Total (Litros)" && response.data.length > 0) {
+      if (titulo === "Capacidade Total" && response.data.length > 0) {
         setData({ capacity: response.data[0].capacity });
-      } else if (titulo === "Capacidade atual (Litros)" && response.data) {
+      } else if (titulo === "Capacidade Atual" && response.data) {
         setData({ waterVolume: response.data.waterVolume });
-      } else if (titulo === "Medições Totais") {
+      } else if (titulo === "Total de Coletas") {
         setData({ totalLogs: response.data.totalLogs })
       } else {
         setData(null);
@@ -78,9 +78,9 @@ export default function InfoCard({ titulo, subtitulo, icone: Icone, prop }: Card
       <CardContent>
         {data ? (
           <p className="text-base sm:text-lg font-bold">
-            {titulo === "Capacidade Total (Litros)" && `${data.capacity} ${prop}`}
-            {titulo === "Capacidade atual (Litros)" && `${data.waterVolume} ${prop}`}
-            {titulo === "Medições Totais" && `${data.totalLogs} ${prop}`}
+            {titulo === "Capacidade Total" && `${data.capacity} ${prop}`}
+            {titulo === "Capacidade Atual" && `${data.waterVolume} ${prop}`}
+            {titulo === "Total de Coletas" && `${data.totalLogs} ${prop}`}
           </p>
         ) : (
           <p>Carregando...</p>
