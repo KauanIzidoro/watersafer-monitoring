@@ -53,7 +53,7 @@ export function WaterLine() {
     <Card className="rounded-xl shadow-xl bg-slate-50">
       <CardHeader>
         <div className="flex">
-          <CardTitle>Consumo x Armazenamento Semanal</CardTitle>
+          <CardTitle>Consumo x Armazenamento</CardTitle>
           <ChartArea className="h-6 w-6 ml-auto text-slate-500" />
         </div>
         <CardDescription>

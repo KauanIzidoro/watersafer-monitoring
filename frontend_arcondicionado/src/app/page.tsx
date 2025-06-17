@@ -1,7 +1,18 @@
 "use client";
 import { useEffect, useState } from "react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Beaker, Circle, CircleDashed, ThermometerSun } from "lucide-react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  Beaker,
+  Circle,
+  CircleDashed,
+  ThermometerSun,
+} from "lucide-react";
 import InfoCard from "@/components/infocard";
 import { WaterLine } from "@/components/chart/WaterLine";
 import WaterRegister from "@/components/water-register";
@@ -28,7 +39,6 @@ export default function WeatherCard() {
         } else {
           console.error("Erro: dados inválidos ou cidade não encontrada", data);
         }
-
       } catch (error) {
         console.error("Erro ao buscar a previsão do tempo:", error);
       }
@@ -36,29 +46,35 @@ export default function WeatherCard() {
 
     fetchWeather();
   }, []);
+
   return (
     <div className="w-full h-full max-w-8xl mx-auto p-5">
-      <header className="flex items-center gap-5 mb-5">
-        <img className="h-[50px]" src="https://www.sp.senai.br/images/senai.svg" alt="SENAI" />
-        <h1 className="text-2xl sm:text-4xl font-bold font">Monitoramento Aqua Air</h1>
+      <header className="flex flex-col sm:flex-row sm:items-center gap-3 mb-5 text-center sm:text-left">
+        <img
+          className="h-[50px] mx-auto sm:mx-0"
+          src="https://www.sp.senai.br/images/senai.svg"
+          alt="SENAI"
+        />
+        <h1 className="text-2xl sm:text-4xl font-bold font">
+          Monitoramento Aqua Air
+        </h1>
       </header>
 
       <hr className="my-4" />
 
-      <div className="grid grid-cols-9 h-full w-full gap-4 pb-5">
-
-        <div className="col-span-6 h-full">
+      <div className="grid grid-cols-1 md:grid-cols-9 gap-4 pb-4">
+        <div className="md:col-span-6 col-span-1">
           <Card className="items-center rounded-xl shadow-xl bg-slate-50">
-            <CardContent className="flex justify-center items-center gap-5">
+            <CardContent className="flex justify-center items-center gap-8 p-8">
               <ThermometerSun className="h-12 w-12" />
               <div className="flex flex-col items-center text-center">
                 <span
-                  className={`text-5xl font-bold ${temperature === null ? "animate-pulse" : ""
+                  className={`text-3xl md:text-6xl font-bold ${temperature === null ? "animate-pulse" : ""
                     }`}
                 >
                   {temperature !== null ? `${temperature}°C` : "Carregando..."}
                 </span>
-                <h1 className="text-2xl">
+                <h1 className="text-xl md:text-2xl">
                   Previsão para{" "}
                   <span
                     className={`font-bold ${!description ? "animate-pulse" : ""
@@ -72,17 +88,28 @@ export default function WeatherCard() {
           </Card>
         </div>
 
-        <div className="col-span-3 h-full">
+        <div className="md:col-span-3 col-span-1">
           <Card className="rounded-xl shadow-xl bg-slate-50">
             <CardHeader>
-              <CardTitle>Faculdade de Tecnologia <br /><a className="text-red-600" href="https://www.sp.senai.br">SENAI "Gaspar Ricardo Júnior"</a></CardTitle>
+              <CardTitle>
+                Faculdade de Tecnologia <br />
+                <a
+                  className="text-red-600"
+                  href="https://www.sp.senai.br"
+                  target="_blank"
+                >
+                  SENAI &ldquo;Gaspar Ricardo Júnior&rdquo;
+                </a>
+              </CardTitle>
               <hr className="my-4 bg-slate-50" />
-              <CardDescription>Projeto de Extensão: ADS / Mecatrônica</CardDescription>
+              <CardDescription>
+                Projeto de Extensão: ADS / Mecatrônica
+              </CardDescription>
             </CardHeader>
           </Card>
         </div>
 
-        <div className="col-span-3 h-full">
+        <div className="md:col-span-3 col-span-1">
           <InfoCard
             titulo="Capacidade Total"
             subtitulo="Capacidade total de armazenamento do reservatório"
@@ -91,7 +118,7 @@ export default function WeatherCard() {
           />
         </div>
 
-        <div className="col-span-3 h-full">
+        <div className="md:col-span-3 col-span-1">
           <InfoCard
             titulo="Capacidade Atual"
             subtitulo="Capacidade atual armazenado no reservatório."
@@ -100,7 +127,7 @@ export default function WeatherCard() {
           />
         </div>
 
-        <div className="col-span-3 h-full">
+        <div className="md:col-span-3 col-span-1">
           <InfoCard
             titulo="Total de Coletas"
             subtitulo="Número de medições pelo sensor ultrassônico."
@@ -109,14 +136,13 @@ export default function WeatherCard() {
           />
         </div>
 
-        <div className="col-span-6">
+        <div className="md:col-span-6 col-span-1">
           <WaterLine />
         </div>
 
-        <div className="col-span-3">
+        <div className="md:col-span-3 col-span-1">
           <WaterRegister />
         </div>
-
       </div>
     </div>
   );
