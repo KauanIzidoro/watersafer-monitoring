@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils"
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "AcquaAir - Dashboard",
+  title: "Aqua Air - Dashboard",
   description: "Monitoramento IoT",
 };
 

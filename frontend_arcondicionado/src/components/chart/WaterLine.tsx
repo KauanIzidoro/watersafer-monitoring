@@ -43,21 +43,21 @@ const chartConfig = {
     color: "hsl(var(--chart-1))",
   },
   gasto: {
-    label: "Gasto",
+    label: "Consumido",
     color: "hsl(var(--chart-5))",
   },
 } satisfies ChartConfig
 
 export function WaterLine() {
   return (
-    <Card className="rounded-xl shadow-lg bg-slate-50">
+    <Card className="rounded-xl shadow-xl bg-slate-50">
       <CardHeader>
         <div className="flex">
-          <CardTitle>Gasto x Capacidade Total</CardTitle>
+          <CardTitle>Consumo x Armazenamento Semanal</CardTitle>
           <ChartArea className="h-6 w-6 ml-auto text-slate-500" />
         </div>
         <CardDescription>
-          Comparação entre dados de gasto e armazenamento coletados do mês atual
+          Relação entre o volume de água consumido e o volume armazenado dos últimos 7 dias.
         </CardDescription>
       </CardHeader>
       <CardContent>

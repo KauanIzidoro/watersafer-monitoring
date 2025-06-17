@@ -53,7 +53,7 @@ export default function WeatherCard() {
               <ThermometerSun className="h-12 w-12" />
               <div className="flex flex-col items-center text-center">
                 <span
-                  className={`text-4xl font-semibold ${temperature === null ? "animate-pulse" : ""
+                  className={`text-5xl font-bold ${temperature === null ? "animate-pulse" : ""
                     }`}
                 >
                   {temperature !== null ? `${temperature}°C` : "Carregando..."}

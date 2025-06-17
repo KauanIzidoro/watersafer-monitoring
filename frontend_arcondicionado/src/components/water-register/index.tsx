@@ -1,9 +1,9 @@
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area"; // Certifique-se de importar o ScrollArea
 import { Droplet } from "lucide-react";
 
 export default function WaterRegister() {
-  // Dados fictícios de exemplo
+  // mock
   const registros = [
     { volume: "250 ml", horario: "19:00 am" },
     { volume: "100 ml", horario: "18:30 am" },
@@ -20,9 +20,9 @@ export default function WaterRegister() {
   ];
 
   return (
-    <Card className="rounded-xl shadow-lg bg-slate-50">
+    <Card className="rounded-xl shadow-xl bg-slate-50">
       <CardHeader>
-        <CardTitle className="text-center text-lg font-semibold">
+        <CardTitle className="text-center text-xl font-semibold">
           Registros de Coleta
         </CardTitle>
       </CardHeader>
