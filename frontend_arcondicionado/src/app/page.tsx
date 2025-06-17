@@ -20,6 +20,7 @@ import WaterRegister from "@/components/water-register";
 export default function WeatherCard() {
   const [temperature, setTemperature] = useState<number | null>(null);
   const [description, setDescription] = useState("");
+  const [lastUpdate, setLastUpdate] = useState<Date | null>(null);  // novo estado
 
   useEffect(() => {
     const fetchWeather = async () => {
@@ -36,6 +37,7 @@ export default function WeatherCard() {
         if (data.cod === 200 && data.main && data.weather?.length > 0) {
           setTemperature(Math.round(data.main.temp));
           setDescription(data.weather[0].description);
+          setLastUpdate(new Date());
         } else {
           console.error("Erro: dados inválidos ou cidade não encontrada", data);
         }
@@ -46,6 +48,16 @@ export default function WeatherCard() {
 
     fetchWeather();
   }, []);
+
+   const formatDateTime = (date: Date) => {
+    return date.toLocaleString("pt-BR", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+  };
 
   return (
     <div className="w-full h-full max-w-8xl mx-auto p-5">
@@ -83,6 +95,11 @@ export default function WeatherCard() {
                     {description || "Carregando..."}
                   </span>
                 </h1>
+                {lastUpdate && (
+                  <p className="text-sm text-slate-400">
+                    Atualizado em: {formatDateTime(lastUpdate)}
+                  </p>
+                )}
               </div>
             </CardContent>
           </Card>
