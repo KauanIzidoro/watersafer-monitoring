@@ -64,7 +64,7 @@ export default function InfoCard({ titulo, subtitulo, icone: Icone, prop }: Card
   }, [fetchData]);
 
   return (
-    <Card>
+    <Card className="rounded-xl shadow-xl bg-slate-50 h-full">
       <CardHeader>
         <div className="flex">
           <CardTitle className="text-lg sm:text-xl select-none">
